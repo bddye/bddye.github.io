@@ -4,11 +4,46 @@
   
   
   <entry>
+    <title>2025.1.18 DASCTF</title>
+    <link href="/2025/01/22/2025.1.18DASCTF/"/>
+    <url>/2025/01/22/2025.1.18DASCTF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="2025-1-18西湖论剑"><a href="#2025-1-18西湖论剑" class="headerlink" title="2025.1.18西湖论剑"></a>2025.1.18西湖论剑</h1><h2 id="matrixRSA"><a href="#matrixRSA" class="headerlink" title="matrixRSA"></a>matrixRSA</h2><p>先看题目</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> string<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag<br>ext_len = <span class="hljs-number">9</span>*<span class="hljs-number">23</span> - <span class="hljs-built_in">len</span>(flag)<br>flag += <span class="hljs-string">&#x27;&#x27;</span>.join(random.choice(string.printable) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ext_len))<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_rsa_encrypt</span>():<br>    p = getPrime(<span class="hljs-number">512</span>)<br>    q = getPrime(<span class="hljs-number">512</span>)<br>    n = p * q<br>    data = []<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">9</span>):<br>        data.append(bytes_to_long(flag[<span class="hljs-number">23</span>*i:<span class="hljs-number">23</span>*(i+<span class="hljs-number">1</span>)].encode()))<br>    M = Matrix(Zmod(n), [data[i:i+<span class="hljs-number">3</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(data), <span class="hljs-number">3</span>)])<br>    e = <span class="hljs-number">65537</span><br>    C = M**e<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;p =&quot;</span>, p &gt;&gt; <span class="hljs-number">100</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;n =&quot;</span>, n)<br>    <span class="hljs-keyword">return</span> C<br>C = my_rsa_encrypt()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;C =&quot;</span>, C)<br></code></pre></td></tr></table></figure><p>题目是给出了p的高412位,n,和C</p><p>那么直接上coppersmith即可解出p</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sage">p = 9707529668721508094878754383636813058761407528950189013789315732447048631740849315894253576415843631107370002912949379757275<br>n = 132298777672085547096511087266255066285502135020124093900452138262993155381766816424955849796168059204379325075568094431259877923353664926875986223020472585645919414821322880213299188157427622804140996898685564075484754918339670099806186873974594139182324884620018780943630196754736972805036038798946726414009<br>p=p&lt;&lt;100<br>bit=100<br>R.&lt;x&gt;=PolynomialRing(Zmod(n))<br>f=p+x<br>f=f.monic()<br>roots=f.small_roots(X=2^bit,beta=0.4,epsilon=0.01)<br>print(roots)<br></code></pre></td></tr></table></figure><blockquote><p>[386875690473242360543194849663]</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">p=<span class="hljs-number">12305755811288164655681709252717258015229295989302934566212712319314835335461946241491177972870130171728224502716603340551354171940107285908105124549960063</span><br>q=<span class="hljs-number">10750967246621849802090386055921679114516122704252330881722100331526757637044067492444912824266860574267360247681890637480406758188129451052986858429875143</span><br></code></pre></td></tr></table></figure><p>刚开始先试试phi&#x3D;(p-1)*(q-1)<br>按正常RSA来解发现结果不对<br>上网搜索（搜索引擎yyds）<br>发现这道题其实是论文复现<br>基本是原题了，<a href="https://latallvia-d.github.io/2024/07/02/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0%EF%BC%9AA%20Matrix%20Extension%20of%20the%20RSA%20Cryptosystem/">这是原文</a><del>他博客主题怎么抄袭我（小声）</del></p><p><img src="/2025/01/22/2025.1.18DASCTF/1.png"><br>那么把phi用(p**2-1)*(p**2-p)*(q**2-1)*(q**2-q)代掉即可</p><p>最后得出</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">b&#x27;DASCTF&#123;48ccbfd88061d7ff3d5325148ec55d11&#125;&#x27;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>DASCTF</category>
+      
+      <category>matrixRSA</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DASCTF</tag>
+      
+      <tag>matrix</tag>
+      
+      <tag>RSA</tag>
+      
+      <tag>矩阵</tag>
+      
+      <tag>论文复现</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>换电脑啦</title>
     <link href="/2025/01/22/%E6%8D%A2%E7%94%B5%E8%84%91%E5%95%A6/"/>
     <url>/2025/01/22/%E6%8D%A2%E7%94%B5%E8%84%91%E5%95%A6/</url>
     
-    <content type="html"><![CDATA[<p>换了台电脑，git提交没问题了，要开始更新博客啦<br><img src="/2025/01/22/%E6%8D%A2%E7%94%B5%E8%84%91%E5%95%A6/1.jpg" alt="当当当当"></p>]]></content>
+    <content type="html"><![CDATA[<p>换了台电脑，git提交没问题了，要开始更新博客啦<br><img src="/2025/01/22/%E6%8D%A2%E7%94%B5%E8%84%91%E5%95%A6/1.jpg" alt="当当当当"></p><p>之后大概就是会比赛的题目出一篇博客，密码出一篇博客，所以可能会有点重复。嗯。</p>]]></content>
     
     
     
