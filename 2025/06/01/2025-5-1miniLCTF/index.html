@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="蹦跶的鱼儿">
+  <meta name="keywords" content="蹦跶的鱼儿">
+  
+    <meta name="description" content="2025.5.1miniLCTF是 2025.5.1miniLCTF 哒！ 勉勉强强做了3道题，稍微记录一下 rsasign听说你很会RSA？ （flag以miniL开头） 1234567891011121314151617181920212223242526272829303132333435363738394041424344from Crypto.Util.number import byt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025.5.1miniLCTF">
+<meta property="og:url" content="https://bddye.github.io/2025/06/01/2025-5-1miniLCTF/index.html">
+<meta property="og:site_name" content="蹦跶的鱼儿">
+<meta property="og:description" content="2025.5.1miniLCTF是 2025.5.1miniLCTF 哒！ 勉勉强强做了3道题，稍微记录一下 rsasign听说你很会RSA？ （flag以miniL开头） 1234567891011121314151617181920212223242526272829303132333435363738394041424344from Crypto.Util.number import byt">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-01T09:38:16.000Z">
+<meta property="article:modified_time" content="2025-06-01T11:39:33.888Z">
+<meta property="article:author" content="蹦跶的鱼儿">
+<meta property="article:tag" content="蹦跶的鱼儿">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2025.5.1miniLCTF - 蹦跶的鱼儿</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bddye.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>蹦跶的鱼儿的池塘</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2025.5.1miniLCTF"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-01 17:38" pubdate>
+          2025年6月1日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2025.5.1miniLCTF</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="2025-5-1miniLCTF"><a href="#2025-5-1miniLCTF" class="headerlink" title="2025.5.1miniLCTF"></a>2025.5.1miniLCTF</h1><p>是 <strong>2025.5.1miniLCTF</strong> 哒！</p>
+<p>勉勉强强做了3道题，稍微记录一下</p>
+<h2 id="rsasign"><a href="#rsasign" class="headerlink" title="rsasign"></a>rsasign</h2><p>听说你很会RSA？ （flag以miniL开头）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> bytes_to_long, getPrime, inverse<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">genKeys</span>(<span class="hljs-params">nbits</span>):<br>    e = <span class="hljs-number">0x10001</span><br>    p = getPrime(nbits // <span class="hljs-number">2</span>)<br>    q = getPrime(nbits // <span class="hljs-number">2</span>)<br>    n = p * q<br>    phi = n - (p + q) + <span class="hljs-number">1</span><br>    d = inverse(e, phi)<br>    pubkey = (n, e)<br>    prikey = (d, p, q)<br>    <br>    <span class="hljs-keyword">return</span> pubkey, prikey<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">encrypt</span>(<span class="hljs-params">msg, pubkey</span>):<br>    m = bytes_to_long(msg)<br>    n, e = pubkey<br>    c = <span class="hljs-built_in">pow</span>(m, e, n)<br>    <span class="hljs-keyword">return</span> c<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_gift</span>(<span class="hljs-params">prikey</span>):<br>    a = bytes_to_long(<span class="hljs-string">b&#x27;miniL&#x27;</span>)<br>    b = bytes_to_long(<span class="hljs-string">b&#x27;mini7&#x27;</span>)<br>    p, q = prikey[<span class="hljs-number">1</span>:]<br>    phi = (p - <span class="hljs-number">1</span>)*(q - <span class="hljs-number">1</span>)<br>    giftp = p + a<br>    giftq = q + b<br>    gift = <span class="hljs-built_in">pow</span>((giftp + giftq + a*b), <span class="hljs-number">2</span>, phi)<br>    <span class="hljs-keyword">return</span> gift &gt;&gt; <span class="hljs-number">740</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    nbits = <span class="hljs-number">1024</span><br>    pubkey, prikey = genKeys(nbits)<br>    c = encrypt(flag, pubkey)<br>    gift = get_gift(prikey)<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.txt&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(<span class="hljs-string">&#x27;pubkey = &#x27;</span> + <span class="hljs-built_in">str</span>(pubkey) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>        f.write(<span class="hljs-string">&#x27;c = &#x27;</span> + <span class="hljs-built_in">str</span>(c) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>        f.write(<span class="hljs-string">&#x27;gift = &#x27;</span> + <span class="hljs-built_in">str</span>(gift) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>题目给出了$gift&#x3D;(p+q+a+b+a * b)^2 \ (mod\ phi)$抹去了低740位后的结果，实际测试可以得出，在抹去了低740位后，gift和$(p^2+q^2)%phi&gt;&gt;740$的结果是一样的。<br>而$n&#x3D;p * q$，phi和n在题目中抹去了低740位的情况下可以认为是一样的，同时测试得出$(p^2+q^2)&#x2F;&#x2F;phi&#x3D;2$，也就是说$gift&lt;&lt;740+2 * n$是$p^2+q^2$的近似值，那么我们可以解出$p+q$的近似值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br>pq=<span class="hljs-built_in">int</span>(gmpy2.iroot((gift&lt;&lt;<span class="hljs-number">740</span>)+<span class="hljs-number">4</span>*n,<span class="hljs-number">2</span>)[<span class="hljs-number">0</span>])<br></code></pre></td></tr></table></figure>
+<p>然后我们可以用这个近似值以及$n&#x3D;p*q$来解出p和q的近似值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sage">pq=20722134693508777238800877111571850901132625448654013903223307395782671739442468572117525995252542531260267404142594227817402250654503919887124996488743970<br><br>n=103894244981844985537754880154957043605938484102562158690722531081787219519424572416881754672377601851964416424759136080204870893054485062449999897173374210892603308440838199225926262799093152616430249061743215665167990978654674200171059005559869946978592535720766431524243942662028069102576083861914106412399<br><br>R.&lt;x&gt;=PolynomialRing(RealField(1000))<br>f=x*(pq-x)-n<br>root=f.roots()<br>print(int(root[0][0]),int(root[1][0]))<br></code></pre></td></tr></table></figure>
+<p>然后二元copper即可求出p，q<br>ps:这里之前做的时候表达式写错了，然后好久求不出来…<br>二元copper:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs sage">import itertools<br><br>def small_roots(f, bounds, m=1, d=None):<br>    if not d:<br>        d = f.degree()<br><br>    if isinstance(f, Polynomial):<br>        x, = polygens(f.base_ring(), f.variable_name(), 1)<br>        f = f(x)<br><br>    R = f.base_ring()<br>    N = R.cardinality()<br>    <br>    f /= f.coefficients().pop(0)<br>    f = f.change_ring(ZZ)<br><br>    G = Sequence([], f.parent())<br>    for i in range(m+1):<br>        base = N^(m-i) * f^i<br>        for shifts in itertools.product(range(d), repeat=f.nvariables()):<br>            g = base * prod(map(power, f.variables(), shifts))<br>            G.append(g)<br><br>    B, monomials = G.coefficient_matrix()<br>    monomials = vector(monomials)<br><br>    factors = [monomial(*bounds) for monomial in monomials]<br>    for i, factor in enumerate(factors):<br>        B.rescale_col(i, factor)<br><br>    B = B.dense_matrix().LLL()<br><br>    B = B.change_ring(QQ)<br>    for i, factor in enumerate(factors):<br>        B.rescale_col(i, 1/factor)<br><br>    H = Sequence([], f.parent().change_ring(QQ))<br>    for h in filter(None, B*monomials):<br>        H.append(h)<br>        I = H.ideal()<br>        if I.dimension() == -1:<br>            H.pop()<br>        elif I.dimension() == 0:<br>            roots = []<br>            for root in I.variety(ring=ZZ):<br>                root = tuple(R(root[var]) for var in f.variables())<br>                roots.append(root)<br>            return roots<br><br>    return []<br></code></pre></td></tr></table></figure>
+
+<p>解p,q:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sage">n=103894244981844985537754880154957043605938484102562158690722531081787219519424572416881754672377601851964416424759136080204870893054485062449999897173374210892603308440838199225926262799093152616430249061743215665167990978654674200171059005559869946978592535720766431524243942662028069102576083861914106412399<br><br>p1=8501639590121977595053523738818375259679414794730106020578368658056270529108719142843616239876180609592408042971719162819965092838486348749800524648844783<br>q1=12220495103386799643747353372753475641453210653923907882644938737726401210333749429273909755376361921667859361170875064997437157816017571137324471839899186<br><br>P.&lt;x,y&gt; = PolynomialRing(Zmod(n))<br>f=(p1-x)*(q1+y)-n<br>bounds = (2^230,2^230)<br>res = small_roots(f,bounds,m = 4 ,d = 7)<br>print(res)<br></code></pre></td></tr></table></figure>
+<p>然后正常解个RSA即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs flag">miniL&#123;D0_Y@U_Li)e_T&amp;@_RRRSA??&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="babaisiginsigin"><a href="#babaisiginsigin" class="headerlink" title="babaisiginsigin"></a>babaisiginsigin</h2><p>Cryptoers(?) sign in here \(≥v≤)&#x2F;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> socket<br><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">import</span> os<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_level1</span>(<span class="hljs-params">m, x, y</span>):<br>    <span class="hljs-keyword">return</span> (m | x) + (m | y)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_level2</span>(<span class="hljs-params">m, x, y</span>):<br>    <span class="hljs-keyword">return</span> (m | x) + (m ^ y)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">level</span>(<span class="hljs-params">conn, calculate, x, y, guess, description, test_times</span>):<br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(test_times):<br>        conn.sendall(<span class="hljs-string">b&quot;Enter your number: &quot;</span>)<br>        <br>        <span class="hljs-comment"># 设置 5 秒超时</span><br>        conn.settimeout(<span class="hljs-number">5</span>)<br>        <br>        <span class="hljs-keyword">try</span>:<br>            data = conn.recv(<span class="hljs-number">1024</span>)<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">try</span>:<br>                test = <span class="hljs-built_in">int</span>(data.strip())<br>            <span class="hljs-keyword">except</span>:<br>                conn.sendall(<span class="hljs-string">b&quot;Invalid input. Bye.\n&quot;</span>)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            result = calculate(test, x, y)<br>            conn.sendall(<span class="hljs-string">f&quot;Calculation result: <span class="hljs-subst">&#123;result&#125;</span>\n&quot;</span>.encode())<br>        <span class="hljs-keyword">except</span> socket.timeout:<br>            conn.sendall(<span class="hljs-string">b&quot;Time out! Respond in 5 seconds.\n&quot;</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    conn.sendall(<span class="hljs-string">f&quot;\nNow, guess the result of <span class="hljs-subst">&#123;description&#125;</span> for m = <span class="hljs-subst">&#123;guess&#125;</span>:\n&quot;</span>.encode())<br>    <br>    <span class="hljs-comment"># 设置 5 秒超时</span><br>    conn.settimeout(<span class="hljs-number">5</span>)<br>    <br>    <span class="hljs-keyword">try</span>:<br>        data = conn.recv(<span class="hljs-number">1024</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">try</span>:<br>            user_guess = <span class="hljs-built_in">int</span>(data.strip())<br>        <span class="hljs-keyword">except</span>:<br>            conn.sendall(<span class="hljs-string">b&quot;Invalid input. Bye.\n&quot;</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>        correct_result = calculate(guess, x, y)<br>        <span class="hljs-keyword">if</span> user_guess == correct_result:<br>            conn.sendall(<span class="hljs-string">b&quot;Correct! Proceeding to next level...\n\n&quot;</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            conn.sendall(<span class="hljs-string">b&quot;Wrong guess! Exiting...\n&quot;</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">except</span> socket.timeout:<br>        conn.sendall(<span class="hljs-string">b&quot;Time out! You took too long to respond.\n&quot;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">handle_client</span>(<span class="hljs-params">conn, addr, flag</span>):<br>    conn.sendall(<span class="hljs-string">b&quot;Welcome to Puzzle!\n\n&quot;</span>)<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-comment"># Level 1</span><br>        x = random.getrandbits(<span class="hljs-number">30</span>)<br>        y = random.getrandbits(<span class="hljs-number">30</span>)<br>        guess = random.getrandbits(<span class="hljs-number">30</span>)<br>        conn.sendall(<span class="hljs-string">b&quot;Level 1:\n&quot;</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> level(conn, calculate_level1, x, y, guess, <span class="hljs-string">&quot;(m | x) + (m | y)&quot;</span>, test_times=<span class="hljs-number">2</span>):<br>            conn.close()<br>            <span class="hljs-keyword">return</span><br><br>        <span class="hljs-comment"># Level 2</span><br>        x = random.getrandbits(<span class="hljs-number">30</span>)<br>        y = random.getrandbits(<span class="hljs-number">30</span>)<br>        guess = random.getrandbits(<span class="hljs-number">30</span>)<br>        conn.sendall(<span class="hljs-string">b&quot;Level 2:\n&quot;</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> level(conn, calculate_level2, x, y, guess, <span class="hljs-string">&quot;(m | x) + (m ^ y)&quot;</span>, test_times=<span class="hljs-number">2</span>):<br>            conn.close()<br>            <span class="hljs-keyword">return</span><br><br>        <span class="hljs-comment"># 通关，发flag</span><br>        conn.sendall(<span class="hljs-string">f&quot;Congratulations! You&#x27;ve passed all levels!\nHere is your flag: <span class="hljs-subst">&#123;flag&#125;</span>\n&quot;</span>.encode())<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        conn.sendall(<span class="hljs-string">b&quot;An error occurred. Bye.\n&quot;</span>)<br>    <span class="hljs-keyword">finally</span>:<br>        conn.close()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    host = <span class="hljs-string">&quot;0.0.0.0&quot;</span><br>    port = <span class="hljs-number">2227</span><br><br>    flag = os.getenv(<span class="hljs-string">&#x27;FLAG&#x27;</span>, <span class="hljs-string">&#x27;flag&#123;testflag&#125;&#x27;</span>)<br><br>    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    s.bind((host, port))<br>    s.listen(<span class="hljs-number">5</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[+] Listening on <span class="hljs-subst">&#123;host&#125;</span>:<span class="hljs-subst">&#123;port&#125;</span>&quot;</span>)<br><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        conn, addr = s.accept()<br>        threading.Thread(target=handle_client, args=(conn, addr, flag)).start()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></td></tr></table></figure>
+<p>题目要求我们完成2个挑战，每个挑战会先让我们发送2个m，靶机会返回特定计算后的结果，然后让我们计算靶机给出的m的计算后的结果。<br>这里我们并不需要计算出准确的x和y，只需要得到一个等效的x,y，使得我们的计算结果和靶机上的基本都是一样的就好了。<br>我的想法是，对于一个二进制的数m，比如10101，靶机会计算$(m|x)+(m|y)$，对于第i位比特位,假如$m_i$是0，那么返回的结果中的第i位就会是$x_i+y_i$，而如果$m_i$是1,那么返回的结果中的第i位就会是$1+1$，就一定是0，同时往前进一位。<br>那么对于一个01交替的二进制数m来说，这里假设还是10101，对于它的计算结果r，如果$m_0$(最低位)是0，同时$r_0$是0，那么$x_0$和$y_0$就可能都是0，或者都是1，那么我们再看$r_{1}$，如果也是0，那么就证明在$r_0$的计算中没有进位，那么$x_0$和$y_0$就只可能都是0，反之则都是1。<br>如果$r_0$是1，那么就证明$x_0$和$y_0$中有一个1，而我们可以任意让其中一个是1即可，因为不管哪个是1，这不影响计算结果。<br>然后我们会注意到如果$m_i$为1的时候会向前进一位，但这也只是让我们上面的结果稍稍改变了一下，并不会使得$x_{i+1}$和$y_{i+1}$变的不确定。<br>在这种构造下，我们就可以得到x和y一半的比特位了(这里的x，y指等效的x，y)，然后我们对m按位取反即可得到另一半比特位。<br>这个过程可以交给z3来完成。<br>然后对于第二部分z3仍然可以求解，我做的时候没有仔细的去思考过，只是想试试z3还能不能做，然后准确率竟然比第一部分还高，很神奇。<br>z3可能出错的原因我不清楚，它是有可能解出连约束都过不了的解的，但概率还是比较小的，多交换几次即可。<br>exp(可能不稳定，但我懒得改了):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">from</span> websocket <span class="hljs-keyword">import</span> create_connection<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_level1</span>(<span class="hljs-params">m, x, y</span>):<br>    <span class="hljs-keyword">return</span> (m | x) + (m | y)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_level2</span>(<span class="hljs-params">m, x, y</span>):<br>    <span class="hljs-keyword">return</span> (m | x) + (m ^ y)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">pred</span>(<span class="hljs-params">m1,res1,m2,res2,guess,cal</span>):<br>    x=BitVec(<span class="hljs-string">&#x27;x&#x27;</span>,<span class="hljs-number">30</span>)<br>    y=BitVec(<span class="hljs-string">&#x27;y&#x27;</span>,<span class="hljs-number">30</span>)<br>    solver=Solver()<br>    solver.add(res1==cal(m1,x,y))<br>    solver.add(res2==cal(m2,x,y))<br>    <span class="hljs-keyword">if</span> solver.check()==sat:<br>        root=solver.model()<br>        a=root[x].as_long()<br>        b=root[y].as_long()<br>        <span class="hljs-comment">#print(&#x27;===========&#x27;,res1==cal(m1,a,b),res2==cal(m2,a,b))</span><br>        <span class="hljs-keyword">return</span> cal(guess,a,b)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>(<span class="hljs-params">cal</span>):<br>    x = random.getrandbits(<span class="hljs-number">30</span>)<br>    y = random.getrandbits(<span class="hljs-number">30</span>)<br>    guess = random.getrandbits(<span class="hljs-number">30</span>)<br><br>    m1 = <span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;01&#x27;</span> * <span class="hljs-number">15</span>, <span class="hljs-number">2</span>)<br>    m2 = m1 ^ ((<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>) - <span class="hljs-number">1</span>)<br>    res1=cal(m1, x, y)<br>    res2=cal(m2, x, y)<br><br>    predict=pred(m1,res1,m2,res2,guess,cal)<br>    real=cal(guess,x,y)<br>    <span class="hljs-built_in">print</span>(predict==real)<br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">for i in range(50):</span><br><span class="hljs-string">    test(calculate_level1)</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>url = <span class="hljs-string">&quot;wss://ctf.xidian.edu.cn/api/traffic/D9UHsvaTW4RfhMxCyB5JX?port=2227&quot;</span><br>r = create_connection(url)<br><br>m1 = <span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;01&#x27;</span> * <span class="hljs-number">15</span>, <span class="hljs-number">2</span>)<br>m2 = m1 ^ ((<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>) - <span class="hljs-number">1</span>)<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br><br>r.send(<span class="hljs-built_in">str</span>(m1).encode())<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br><br>i=data.find(<span class="hljs-string">&#x27;: &#x27;</span>)<br>j=data.find(<span class="hljs-string">&#x27;\nE&#x27;</span>)<br>res1=<span class="hljs-built_in">int</span>(data[i+<span class="hljs-number">2</span>:j])<br><br>r.send(<span class="hljs-built_in">str</span>(m2).encode())<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br><br>i=data.find(<span class="hljs-string">&#x27;: &#x27;</span>)<br>j=data.find(<span class="hljs-string">&#x27;\n\n&#x27;</span>)<br>res2=<span class="hljs-built_in">int</span>(data[i+<span class="hljs-number">2</span>:j])<br><br>i=data.find(<span class="hljs-string">&#x27; = &#x27;</span>)<br>j=data.find(<span class="hljs-string">&#x27;:\n&#x27;</span>)<br><br>guess=<span class="hljs-built_in">int</span>(data[i+<span class="hljs-number">3</span>:j])<br><br>predict=pred(m1,res1,m2,res2,guess,calculate_level1)<br><br>r.send(<span class="hljs-built_in">str</span>(predict).encode())<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br><br><br><span class="hljs-comment">#cal2</span><br>r.send(<span class="hljs-built_in">str</span>(m1).encode())<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br><br>i=data.find(<span class="hljs-string">&#x27;: &#x27;</span>)<br>j=data.find(<span class="hljs-string">&#x27;\nE&#x27;</span>)<br>res1=<span class="hljs-built_in">int</span>(data[i+<span class="hljs-number">2</span>:j])<br><br>r.send(<span class="hljs-built_in">str</span>(m2).encode())<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br><br>i=data.find(<span class="hljs-string">&#x27;t: &#x27;</span>)<br>j=data.find(<span class="hljs-string">&#x27;\n\n&#x27;</span>)<br>res2=<span class="hljs-built_in">int</span>(data[i+<span class="hljs-number">3</span>:j])<br><br>i=data.find(<span class="hljs-string">&#x27; = &#x27;</span>)<br>j=data.find(<span class="hljs-string">&#x27;:\n&#x27;</span>)<br><br>guess=<span class="hljs-built_in">int</span>(data[i+<span class="hljs-number">3</span>:j])<br><br>predict=pred(m1,res1,m2,res2,guess,calculate_level2)<br><br>r.send(<span class="hljs-built_in">str</span>(predict).encode())<br><br>data=r.recv().decode()<br><span class="hljs-built_in">print</span>(data)<br></code></pre></td></tr></table></figure>
+<p>flag:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs flag">miniLCTF&#123;646AI-51G1n-CRYpto_Z-l5-Y0u_flag-is_WiN561&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="ezhash？！"><a href="#ezhash？！" class="headerlink" title="ezhash？！"></a>ezhash？！</h2><p>这次你还能碰撞的出来吗？ （注：flag以miniL开头）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span>*<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> string<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag,key<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">shash</span>(<span class="hljs-params">value,key</span>):<br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">type</span>(value) == <span class="hljs-built_in">str</span><br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">type</span>(key) == <span class="hljs-built_in">int</span><br>    length = <span class="hljs-built_in">len</span>(value)<br><br>    <span class="hljs-keyword">if</span> length == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>    mask = <span class="hljs-number">0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</span><br>    x = (<span class="hljs-built_in">ord</span>(value[<span class="hljs-number">0</span>]) &lt;&lt; <span class="hljs-number">7</span>) &amp; mask<br>    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> value:<br>        x = (key * x) &amp; mask ^ <span class="hljs-built_in">ord</span>(c)<br><br>    x ^= length &amp; mask<br><br>    <span class="hljs-keyword">return</span> x<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_test</span>(<span class="hljs-params">key</span>):<br><br>    testvalue = []<br>    testhash = []<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">64</span>):<br>        a = <span class="hljs-string">&#x27;&#x27;</span>.join(random.choices(string.ascii_letters + string.digits, k=<span class="hljs-number">32</span>)) <br>        testvalue.append(a)<br>        testhash.append(shash(a,key))<br><br>    <span class="hljs-keyword">return</span> testvalue,testhash<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">len</span>(flag) == <span class="hljs-number">32</span><br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">type</span>(flag) == <span class="hljs-built_in">str</span><br>    key = getRandomInteger(<span class="hljs-number">128</span>)<br>    testvalue,testhash = get_test(key)<br>    shash = shash(flag,key)<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.txt&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(<span class="hljs-string">&#x27;testvalue = &#x27;</span> + <span class="hljs-built_in">str</span>(testvalue) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>        f.write(<span class="hljs-string">&#x27;testhash = &#x27;</span> + <span class="hljs-built_in">str</span>(testhash) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>        f.write(<span class="hljs-string">&#x27;shash = &#x27;</span> + <span class="hljs-built_in">str</span>(shash) + <span class="hljs-string">&#x27;\n&#x27;</span>)        <br></code></pre></td></tr></table></figure>
+<p>题目给了64组测试数据，然后一个flag的哈希值。<br>那么我们通过测试数据来解出所用的key，然后解这个哈希即可。<br>题目中提到key是128位的，但我实际上仅通过一组数据解出来一个更小的key，同时这个key对于后面63组数据来说是符合的，也就是说我们可以解出一个等效的key来解题，而不需要去解128位的key。<br>这个还是用z3即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *<br><br>f=<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.txt&#x27;</span>,<span class="hljs-string">&#x27;r+&#x27;</span>)<br>fl=f.readlines()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> fl:<br>    i=i.strip()<br>    <span class="hljs-built_in">exec</span>(i)<br><br>thash=shash<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">shash</span>(<span class="hljs-params">value,key</span>):<br>    <span class="hljs-comment">#assert type(value) == str</span><br>    <span class="hljs-comment">#assert type(key) == int</span><br>    length = <span class="hljs-built_in">len</span>(value)<br><br>    <span class="hljs-keyword">if</span> length == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>    mask = <span class="hljs-number">0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</span><br>    x = (<span class="hljs-built_in">ord</span>(value[<span class="hljs-number">0</span>]) &lt;&lt; <span class="hljs-number">7</span>) &amp; mask<br>    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> value:<br>        x = (key * x) &amp; mask ^ <span class="hljs-built_in">ord</span>(c)<br><br>    x ^= length &amp; mask<br><br>    <span class="hljs-keyword">return</span> x<br><br>key=BitVec(<span class="hljs-string">&#x27;key&#x27;</span>,<span class="hljs-number">20</span>)<br>solver=Solver()<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>):<br>    solver.add(shash(testvalue[i],key)==testhash[i])<br><span class="hljs-keyword">if</span> solver.check()==sat:<br>    res=solver.model()<br>    <span class="hljs-built_in">print</span>(res[key].as_long())<br></code></pre></td></tr></table></figure>
+<p>解出来key是1000001。<br>接下来可以参考这篇博客<br><a target="_blank" rel="noopener" href="https://dexterjie.github.io/2024/05/18/%E8%B5%9B%E9%A2%98%E5%A4%8D%E7%8E%B0/2024CISCN/#%E7%94%A8%E6%A0%BC%E6%9D%A5%E5%81%9A">hash——复现</a><br>构造相同的格，稍微调一下参数就可以了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs sage">from Crypto.Util.number import *<br>th=463802484547898091835999726502006552543022358314700124374789687370275467670717610329<br>key=1000001<br><br>th=(th^^32)%2**280<br>#th=((th^^125)%2**280)*inverse(key,2**280)%2**280<br><br>len1=32<br>k1=2^50<br>k2=2^15<br>data=[]<br>data=[128*key^len1+key^(len1-1)]<br>data+=[key^i for i in range(len1-1)][::-1]<br>for i in range(len1):<br>    data[i]=data[i]%2**280<br>B=[[0]*(len1+2) for i in range(len1+2)]<br><br>for i in range(len1):<br>    B[i][i]=1<br>    B[i][-1]=data[i]<br>B[-2][-2]=k1<br>B[-2][-1]=-th<br>B[-1][-1]=2**280<br>B=Matrix(ZZ,B)<br>B[:,-1:] *= k2<br>B_=B.LLL()<br>#print(B_)<br>print(guass_Heuristic(B).bit_length(),int(iroot(2**256*len1+1,2)[0]).bit_length())<br>for j in B_:<br>    if j[-2]==k:<br>        print(j)<br>    if j[-2]==k and j[-1]==0:<br>        tmp=j[:-2]<br>        plain=b&#x27;&#x27;<br>        c=th<br>        for i in range(len(tmp)):<br>            tmpc = (c - tmp[-i-1]) % 2^280<br>            s = (tmpc ^^ c)<br>            plain+=long_to_bytes(s)<br>            c = (c ^^ s) * inverse(key,2^280) % 2^280<br>        print(plain[::-1])<br></code></pre></td></tr></table></figure>
+<p>经过测试,k2在$2^{10}$ 到 $2^{15}$这个范围内更容易出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs flag">miniL&#123;W@!!_Y()o_get_T()@_SEcr@t&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Noisy"><a href="#Noisy" class="headerlink" title="Noisy"></a>Noisy</h2><p>Damn, there’s just too much noise! Can we still get the flag back?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> getPrime<br><span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> getrandbits, randint<br><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> md5<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Noisy_cipher</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, params</span>):<br>        <span class="hljs-variable language_">self</span>.nbits = params[<span class="hljs-string">&quot;nbits&quot;</span>]<br>        <span class="hljs-variable language_">self</span>.pbits = params[<span class="hljs-string">&quot;nbits&quot;</span>]//<span class="hljs-number">2</span><br>        <span class="hljs-variable language_">self</span>.Mbits = params[<span class="hljs-string">&quot;Mbits&quot;</span>]<br>        <span class="hljs-variable language_">self</span>.k0bits = params[<span class="hljs-string">&quot;k0bits&quot;</span>]<br>        <span class="hljs-variable language_">self</span>.k1bits = params[<span class="hljs-string">&quot;k1bits&quot;</span>]<br>        <span class="hljs-variable language_">self</span>.samples = params[<span class="hljs-string">&quot;samples&quot;</span>]<br>        <span class="hljs-variable language_">self</span>.p = getPrime(<span class="hljs-variable language_">self</span>.pbits)<br>        <span class="hljs-variable language_">self</span>.q = getPrime(<span class="hljs-variable language_">self</span>.nbits)<br>        <span class="hljs-variable language_">self</span>.n = <span class="hljs-variable language_">self</span>.p * <span class="hljs-variable language_">self</span>.q<br>        <span class="hljs-variable language_">self</span>.s = randint(<span class="hljs-number">0</span>, <span class="hljs-variable language_">self</span>.n)<br>        <span class="hljs-variable language_">self</span>.M = getrandbits(<span class="hljs-variable language_">self</span>.Mbits)<br>        <span class="hljs-variable language_">self</span>.pubKey = [<span class="hljs-variable language_">self</span>.n]<br>        <span class="hljs-variable language_">self</span>.priKey = [<span class="hljs-variable language_">self</span>.s, <span class="hljs-variable language_">self</span>.p, <span class="hljs-variable language_">self</span>.M]<br>    <br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">encrypt</span>(<span class="hljs-params">self,msg</span>):<br>        res = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-variable language_">self</span>.samples):<br>            k0 = getrandbits(<span class="hljs-variable language_">self</span>.k0bits)<br>            k1 = getrandbits(<span class="hljs-variable language_">self</span>.k1bits)<br>            ci = <span class="hljs-variable language_">self</span>.s * (msg[i] + k0*<span class="hljs-variable language_">self</span>.M)*(<span class="hljs-number">1</span> + k1*<span class="hljs-variable language_">self</span>.p) % <span class="hljs-variable language_">self</span>.n<br>            res.append(ci)<br>        <br>        <span class="hljs-keyword">return</span> res<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    params = &#123;<br>        <span class="hljs-string">&quot;nbits&quot;</span>:<span class="hljs-number">1024</span>,<br>        <span class="hljs-string">&quot;Mbits&quot;</span>:<span class="hljs-number">30</span>,<br>        <span class="hljs-string">&quot;k0bits&quot;</span>:<span class="hljs-number">30</span>,<br>        <span class="hljs-string">&quot;k1bits&quot;</span>:<span class="hljs-number">512</span>,<br>        <span class="hljs-string">&quot;samples&quot;</span>:<span class="hljs-number">20</span>,<br>    &#125;<br>    mbits = <span class="hljs-number">24</span><br>    Noise = Noisy_cipher(params)<br>    n = Noise.n<br>    msg = [getrandbits(mbits) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(params[<span class="hljs-string">&quot;samples&quot;</span>])]<br>    cipher = Noise.encrypt(msg)<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;secret.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>        flag = file.readlines()[<span class="hljs-number">0</span>].encode()<br>    file.close()<br>    key = md5(<span class="hljs-built_in">str</span>(msg).encode()).digest()<br>    aes = AES.new(key, AES.MODE_ECB)<br>    encrypted_flag = aes.encrypt(pad(flag, <span class="hljs-number">16</span>)).<span class="hljs-built_in">hex</span>()<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.txt&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>        file.write(<span class="hljs-string">&#x27;n = &#x27;</span> + <span class="hljs-built_in">str</span>(n) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>        file.write(<span class="hljs-string">&#x27;c = &#x27;</span> + <span class="hljs-built_in">str</span>(cipher) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>        file.write(<span class="hljs-string">&#x27;encrypted_flag = &quot;&#x27;</span> + encrypted_flag + <span class="hljs-string">&#x27;&quot;\n&#x27;</span>)<br>    file.close()<br></code></pre></td></tr></table></figure>
+<p>题目要求我们从$ci &#x3D; self.s * (msg[i] + k0 * self.M) * (1 + k1 * self.p) % self.n$中恢复$msg[i]$。</p>
+<p>复现ing…</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2025.5.1miniLCTF</div>
+      <div>https://bddye.github.io/2025/06/01/2025-5-1miniLCTF/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>蹦跶的鱼儿</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/11/2025-4-26ACTF/" title="2025.4.26ACTF">
+                        <span class="hidden-mobile">2025.4.26ACTF</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
