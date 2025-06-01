@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="蹦跶的鱼儿">
+  <meta name="keywords" content="蹦跶的鱼儿">
+  
+    <meta name="description" content="2025.4.26ACTF是 2025.4.26ACTF 哒！ 难难难。跑了4个小时的脚本说无解…总之就是我自己爆0了。 easy_logE@sy L0g 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657from Crypto.Util.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025.4.26ACTF">
+<meta property="og:url" content="https://bddye.github.io/2025/05/11/2025-4-26ACTF/index.html">
+<meta property="og:site_name" content="蹦跶的鱼儿">
+<meta property="og:description" content="2025.4.26ACTF是 2025.4.26ACTF 哒！ 难难难。跑了4个小时的脚本说无解…总之就是我自己爆0了。 easy_logE@sy L0g 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657from Crypto.Util.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-11T07:27:03.000Z">
+<meta property="article:modified_time" content="2025-05-29T14:59:11.018Z">
+<meta property="article:author" content="蹦跶的鱼儿">
+<meta property="article:tag" content="蹦跶的鱼儿">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2025.4.26ACTF - 蹦跶的鱼儿</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bddye.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>蹦跶的鱼儿的池塘</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2025.4.26ACTF"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-11 15:27" pubdate>
+          2025年5月11日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2025.4.26ACTF</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="2025-4-26ACTF"><a href="#2025-4-26ACTF" class="headerlink" title="2025.4.26ACTF"></a>2025.4.26ACTF</h1><p>是 <strong>2025.4.26ACTF</strong> 哒！</p>
+<p>难难难。跑了4个小时的脚本说无解…<br>总之就是我自己爆0了。</p>
+<h2 id="easy-log"><a href="#easy-log" class="headerlink" title="easy_log"></a>easy_log</h2><p>E@sy L0g</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> long_to_bytes, bytes_to_long, isPrime<br><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> urandom<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple<br><span class="hljs-keyword">from</span> signal <span class="hljs-keyword">import</span> alarm<br><br>Point = namedtuple(<span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-string">&quot;x y&quot;</span>)<br>O = <span class="hljs-string">&quot;Origin&quot;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">point_addition</span>(<span class="hljs-params">P, Q, n</span>):<br>	<span class="hljs-keyword">if</span> P == O:<br>		<span class="hljs-keyword">return</span> Q<br>	<span class="hljs-keyword">if</span> Q == O:<br>		<span class="hljs-keyword">return</span> P<br>	x = (P.x * Q.y + P.y * Q.x - P.x * Q.x) % n<br>	y = (P.x * Q.x + P.y * Q.y) % n<br>	<span class="hljs-keyword">return</span> Point(x, y)<br>	<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">double_and_add</span>(<span class="hljs-params">k, P, n</span>):<br>	Q = P<br>	R = O<br>	<span class="hljs-keyword">while</span>(k &gt; <span class="hljs-number">0</span>):<br>		<span class="hljs-keyword">if</span> k &amp; <span class="hljs-number">1</span>:<br>			R = point_addition(R, Q, n)<br>		k &gt;&gt;= <span class="hljs-number">1</span><br>		Q = point_addition(Q, Q, n)<br>	<span class="hljs-keyword">return</span> R<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;flag.txt&quot;</span>, <span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:<br>	flag = f.read()<br><br><span class="hljs-keyword">assert</span> <span class="hljs-built_in">len</span>(flag) == <span class="hljs-number">50</span><br>flag = urandom(randint(<span class="hljs-number">38</span>, <span class="hljs-number">48</span>)) + flag<br>flag = flag + urandom(<span class="hljs-number">118</span> - <span class="hljs-built_in">len</span>(flag))<br><br>flag1, flag2 = bytes_to_long(flag[:<span class="hljs-number">68</span>]), bytes_to_long(flag[<span class="hljs-number">68</span>:])<br><br>n = <span class="hljs-number">0x231d5fa471913e79facfd95e9b874e2d499def420e0914fab5c9f87e71c2418d1194066bd8376aa8f02ef35c1926f73a46477cd4a88beae89ba575bb3e1b04271426c6706356dd8cd9aa742d7ad0343f8939bfd2110d45122929d29dc022da26551e1ed7000</span><br>G1 = Point(<span class="hljs-number">0xf22b9343408c5857048a19150c8fb9fd44c25d7f6decabc10bf46a2250a128f0df15adc7b82c70c0acaf855c0e898b141c9c94ba8aef8b67ea298c6d9fd870ea70e1c4f8a1b595d15373dc6db25a4ecddf626a64f47beba5538b7f733e4aa0c4f1fd4c291d</span>, <span class="hljs-number">0x8d3264514b7fdbce97fbaedb33120c7889a1af59691a1947c2c7061347c091b0950ca36efaa704514004a988b9b87b24f5cebf2d1c7bef44ff172519e1a62eb62cde234c94bd0ab39375d7ddb42e044090c8db46d3f965ef7e4753bc41dac3b8b3ae0cdb57</span>)<br>G2 = Point(<span class="hljs-number">0x81919777837d3e5065c6f7f6801fe29544180be9db2137f075f53ebb3307f917183c6fc9cdfc5d75977f7</span>, <span class="hljs-number">0xd1a586d6848caa3a5436a86d903516d83808ce2fa49c5fb3f183ecb855e961c7e816a7ba8f588ef947f19</span>)<br><br>f1 = double_and_add(flag1, G1, n)<br><br><span class="hljs-built_in">print</span>(f1)<br><br>alarm(<span class="hljs-number">30</span>)<br><br><span class="hljs-keyword">if</span> flag1 != <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>()):<br>	exit()<br><br>p = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br><br><span class="hljs-keyword">assert</span> isPrime(p) <span class="hljs-keyword">and</span> p.bit_length() == <span class="hljs-number">400</span><br><br>f2 = double_and_add(flag2, G2, p)<br><br><span class="hljs-built_in">print</span>(f2)<br></code></pre></td></tr></table></figure>
+<p>题目让我们求2个在自定义曲线上的DLP。<br>NaCl是把这个问题转化为了矩阵上的问题，我们构造如下矩阵：<br>$$M_G&#x3D;<br>\begin{bmatrix}<br>G.y-G.x,Q.x \<br>Q.x,   Q.y<br>\end{bmatrix} \mod n$$<br>所有点加就被转换为了矩阵的乘法，倍乘就是矩阵的次方。<br>这个问题就转化为了矩阵的DLP了。<br>之后看他做的比较痛苦，我也不是很懂，但这个思路感觉还是不错的，记录一下。<br>然后就是照着小鸡块的博客的复现了。<br><a target="_blank" rel="noopener" href="https://tangcuxiaojikuai.xyz/post/d21bb624.html#easy_log">easy_log</a><br>2个思路：</p>
+<ol>
+<li>手写一个pohlig hellman+bsgs的ECDLP求解</li>
+<li>可以通过曲线上的点来求出这条曲线（点可以通过点加和倍乘来得到，然后解个方程得到系数就好了，但再往后我就看不懂了…）</li>
+</ol>
+<p>第一个思路：<br>先讲一下bsgs（baby-step giant-step）吧，这次遇到了，正好浅浅的学一下<br>对于一个离散对数问题（DLP）:<br>$a^x \equiv b\ (mod p)$<br>我们可以令$x&#x3D;A\lceil \sqrt{p} \rceil + B$<br>那么等式就可以化为:<br>$a^{A\lceil \sqrt{p} \rceil}\equiv b^{-B}\ (mod p)$<br>那么我们只需要枚举A的值，从0到$\sqrt{p}$然后存入哈希表，再枚举B的值，从0到$\sqrt{p}$，每次枚举的时候查找表中是否有值和$b^{-B}$相同的值，有则取出对应的A，把$A\lceil \sqrt{p} \rceil + B$返回即可，可以在$O(\sqrt{p})$的时间复杂度下完成。<br>下面是这题中小鸡块写的bsgs:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">bsgs</span>(<span class="hljs-params">G, kG, p, order</span>):<br>    t = <span class="hljs-built_in">int</span>(sqrt(order))+<span class="hljs-number">2</span><br>    dic = &#123;&#125;<br><br>    tG = double_and_add(t, G, p)<br>    atG = Point(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(t):<br>        dic[atG] = a<br>        atG = point_addition(atG, tG, p)<br>    <br>    bG = kG<br>    _G = double_and_add((-<span class="hljs-number">1</span>) % order, G, p)<br>    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(t):<br>        <span class="hljs-keyword">if</span>(bG <span class="hljs-keyword">in</span> dic.keys()):<br>            <span class="hljs-keyword">return</span> t*dic[bG] + b<br>        bG = point_addition(bG, _G, p)<br></code></pre></td></tr></table></figure>
+<p>其中参数里的order是G的阶，而不是所在的群的阶。<br>然后再是pohlig hellman<br>值得一提的是，这里我们在应用pohlig hellman的时候，是需要分解一下这个群的order的。<br>即对于一个在$p * q$上的群，其中p,q都是质数，我们需要分解$(p-1) * (q-1)$，然后把整个群投影到阶更小的群中去（阶会比p-1,q-1更小），再用bsgs求解然后crt。在投影到阶更小的群后，bsgs里传入这个群的阶就可以了。</p>
+<p>在其它情况下，如果我们的运算是在sagemath上有定义的，比如加减乘除，椭圆曲线的点加和点乘，我们可以直接使用sagemath内置的discrete_log函数来求解离散对数，这时我们就不需要分解order了，直接在discrete_log里传入ord&#x3D;order即可，discrete_log函数会自动选择pohlig hellman来分解order求解（AI说的，但确实是不需要分解order，但在阶太大的情况下还是要考虑pohlig hellman+discrete_log，即先初步分解一下order，比如在前面那种情况下可以分解成p-1和q-1来传入）</p>
+<p>回到题目中，至于投影的操作，比如整个群的阶是order，而你需要把这个群投影到阶为ord1的群上，那么对于点G，计算double_and_add(order&#x2F;&#x2F;ord1,G,n)，这个点就是投影后的点了，kG也是一样的。<br>但是这题pohlig hellman还是不够，还是太慢了，所以我们需要再套一层，也就是小鸡块wp中的dlp函数:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sage">def dlp(G, kG):<br>    ps = []<br>    ord_p = []<br>    for p, exp in primes[2:3]:<br>        ps.append(p-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p-1))<br>    for p, exp in primes[3:4]:<br>        ps.append(p^2-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p^2-1))<br>    for p, exp in primes[4:5]:<br>        ps.append(p^2-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p^2-1))<br>        ps.append(p)<br>        ord_p.append(lift_to_pk(p, G, kG))<br>    for p, exp in primes[6:]:<br>        ps.append(p-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p-1))<br>    return crt(ord_p, ps), ps<br></code></pre></td></tr></table></figure>
+<p>这里我去问了小鸡块，勉强搞懂了部分代码。<br>题目中的点加和点乘可以看作是二阶矩阵的运算，前面也有提到，所以我们可以把这个求自定义曲线的DLP转化成求二阶矩阵的DLP。<br>在模p上的矩阵，它的阶是$p*(p-1)*(p^2-1)$，也就是说我们可以把这个二阶矩阵投影到阶更小的子群上去求解，比如说阶为$p-1$，$p^2-1$的子群，而点的运算和这个二阶矩阵矩阵的运算是一样的，所以直接用点的运算即可，前面讲的也就不需要更改了。<br>个人感觉这个思路和pohlig hellman是很像的，整个思路就变成了：对一个阶很大的二阶矩阵矩阵构成的群，先把它投影到阶较小的子群上求解，在这个求解过程中再投影一次，投影到阶更小的子群上。<br>在实际的过程中，只需要最后一次投影即可，子群的子群还是子群，所以只需要在最后投影就好了，第一次就做了投影的话可能就是多此一举了，甚至可能会出现错误了。<br>而dlp函数中有的时候用的是$p-1$，有的时候是$p^2-1$，是这些子群有的阶是$p-1$，有的是$p^2-1$，实际测一下即可。<br>还有一点，我们可以注意到n的分解中有一个$p^3$，小鸡块在处理这个因子的时候特意加入了另一组解，这种是把$p^3$拆成了$p$和$p^2$，其中p用正常的pohlig hellman来解，$p^2$的求解用的是p-adic，但这个我还不是很懂，只知道这个也能用来求解离散对数，并且我遇到的都是用来求解$p^x$的，这题中x&#x3D;2正好可以用。但实际原理我是不太懂的。<br>小鸡块的dlp这块的exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs sage">def lift_to_pk(p, G, kG):<br>    order_p = p^2 - 1<br><br>    QPP = Qp(p)<br>    P_Qp = Point(QPP(G[0] % p^2), QPP(G[1] % p^2))<br>    Q_Qp = Point(QPP(kG[0] % p^2), QPP(kG[1] % p^2))<br><br>    nP_Qp = double_and_add_Qp(order_p, P_Qp)<br>    nQ_Qp = double_and_add_Qp(order_p, Q_Qp)<br><br>    secret_p =  ZZ((-nQ_Qp[0]/nQ_Qp[1]) / (-nP_Qp[0]/nP_Qp[1]))<br>    return secret_p % p<br><br>def bsgs(G, kG, p, order):<br>    t = int(sqrt(order))+2<br>    dic = &#123;&#125;<br><br>    tG = double_and_add(t, G, p)<br>    atG = Point(0, 1)<br>    for a in range(t):<br>        dic[atG] = a<br>        atG = point_addition(atG, tG, p)<br>    <br>    bG = kG<br>    _G = double_and_add((-1) % order, G, p)<br>    for b in range(t):<br>        if(bG in dic.keys()):<br>            return t*dic[bG] + b<br>        bG = point_addition(bG, _G, p)<br>        <br>def pohlig_hellman(G, kG, p, order):<br>    facs = list(factor(order))<br>    qs = []<br>    ord_q = []<br>    for q, exp in facs:<br>        qs.append(q^exp)<br>        ord_q.append(bsgs(double_and_add(order//(q^exp), G, p), double_and_add(order//(q^exp), kG, p), p, q^exp))<br>    return crt(ord_q, qs)<br><br>def dlp(G, kG):<br>    ps = []<br>    ord_p = []<br>    for p, exp in primes[2:3]:<br>        ps.append(p-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p-1))<br>    for p, exp in primes[3:4]:<br>        ps.append(p^2-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p^2-1))<br>    for p, exp in primes[4:5]:<br>        ps.append(p^2-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p^2-1))<br>        ps.append(p)<br>        ord_p.append(lift_to_pk(p, G, kG))<br>    for p, exp in primes[6:]:<br>        ps.append(p-1)<br>        ord_p.append(pohlig_hellman(G, kG, p, p-1))<br>    return crt(ord_p, ps), ps<br></code></pre></td></tr></table></figure>
+
+<p>或者可以这么理解第一个思路:<br>这实际上就是一种矩阵的dlp，我之前见过的矩阵的dlp的用矩阵的行列式来代替矩阵，这样就是把矩阵的dlp转化成了普通的dlp。<br>但第一个思路里，我们就是直接通过手写一个bsgs去求矩阵的dlp。<br>在模质数p上的矩阵的阶是$p*(p-1)*(p^2-1)$，所以可以分别用pohlig hellman求一下子群的dlp。</p>
+<p>第二个思路就不讲了，我也还没去试过。</p>
+<h2 id="AAALLL"><a href="#AAALLL" class="headerlink" title="AAALLL"></a>AAALLL</h2><p>Let’s welcome AAA’s LLL master!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> choice, sample<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag<br><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> md5<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sample_ternery_poly</span>(<span class="hljs-params">Q</span>):<br>    <span class="hljs-keyword">return</span> Q([choice([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(Q.degree())])<br><br>n = <span class="hljs-number">450</span><br>p = <span class="hljs-number">3774877201</span><br>t = n//<span class="hljs-number">2</span><br><br>P.&lt;x&gt; = PolynomialRing(GF(p))<br>g = x^n+<span class="hljs-number">1</span><br>roots = [i[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> g.roots()]<br><br>subset = sample(roots, t)<br><br>Q.&lt;x&gt; = P.quotient(x^n+<span class="hljs-number">1</span>)<br>f = sample_ternery_poly(Q)<br>f_lift = f.lift()<br>values = [f_lift(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> subset]<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;subset: <span class="hljs-subst">&#123;subset&#125;</span>&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;values: <span class="hljs-subst">&#123;values&#125;</span>&quot;</span>)<br><br>key = md5(<span class="hljs-built_in">str</span>(f.<span class="hljs-built_in">list</span>()).encode()).digest()<br>aes = AES.new(key = key, mode = AES.MODE_ECB)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;ct: <span class="hljs-subst">&#123;aes.encrypt(pad(flag, <span class="hljs-number">16</span>))&#125;</span>&quot;</span>)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">subset: [1040018022, 3719840057, 2086762603, 3065369513, 3179320758, 891114580, 966265556, 664146925, 1232096603, 1449704729, 2810118429, 2891821810, 698162894, 3070228878, 3114653287, 2793650430, 2941920517, 1811454265, 325024118, 1860481904, 555392385, 2818572232, 3719972491, 981226771, 1777524396, 2717373523, 3694549306, 91210020, 1397236365, 2806262125, 1966653548, 1369610707, 3545263790, 595556443, 1601356313, 2865921937, 2795518764, 1690002428, 3501122295, 2078440315, 1222414863, 1997352805, 271758023, 3348936352, 1800648013, 410072905, 3378691273, 185134810, 1281817316, 821730517, 2855781188, 3353349707, 273754906, 1187616168, 569728457, 401428606, 3671298095, 149603298, 2300569286, 1057503678, 1915386614, 2716934671, 2005635066, 389589525, 2691165686, 586877133, 2874838, 660954102, 3258633701, 1083711515, 1785913794, 3410290851, 1914395297, 2544074509, 3076714307, 2169463229, 2654223166, 3648299978, 3188000068, 1130206965, 875184747, 2549126013, 3602874619, 80327895, 983400559, 2423201604, 3384400899, 654136379, 1835112234, 3302809337, 3388376496, 364586350, 3219484816, 52162306, 3488542302, 2843511894, 638341256, 427235375, 757491483, 3364804296, 172002582, 3112473265, 2746078509, 2118542465, 421527494, 3017385718, 3683667181, 3536621837, 3113923099, 1989065494, 1769242135, 1541932517, 1963422936, 2341204092, 3306256995, 186750428, 1381468653, 1288011784, 229613411, 839241230, 425544589, 2345390466, 2552462338, 286334899, 2984993503, 3741109364, 103579106, 138703348, 2369990075, 2377640836, 1279106009, 2542780598, 1653097443, 3373448595, 2405266494, 3385287676, 289622793, 2376573706, 3096235437, 1971476669, 3449853083, 3565565810, 762810383, 272826480, 516243500, 1710511548, 3233762177, 2013126070, 224313638, 1884110819, 3141861971, 2014729696, 1572103482, 2232944684, 2644670236, 1350302342, 3589742391, 2106163918, 1077036824, 3527373372, 2474464298, 971863088, 1219963894, 3349332612, 1474307915, 905651245, 2666266327, 2192845472, 2748042118, 1489782942, 1300412903, 126577223, 545427793, 360417066, 704648323, 3562938536, 908955264, 1108610874, 247503829, 2379959160, 1059927520, 2869225956, 2202773719, 1498564318, 2032958616, 3485254408, 1091224495, 3287849020, 780873181, 3410363615, 1398303495, 2426564739, 487028181, 1230802692, 139226346, 789883698, 2557862280, 2994004020, 3205148744, 2914199937, 1803400532, 2738281702, 883055391, 1761751131, 1220550272, 1947825121, 3543565567, 1939764967, 2986882625, 798323428, 1120654035, 3722714895, 3679983602, 364513586, 1760147505, 472067864, 2393408548, 2239781327, 799334306, 3497260623, 2769084221, 860677264, 990410164, 3772002363, 2883762621]</span><br><span class="hljs-string">values: [712538976, 1225537965, 2633482204, 1245652635, 2529155164, 1672980719, 3024410928, 1535384351, 2252244320, 672919726, 2976916118, 3089453551, 2512277279, 2431400831, 1129198075, 3441247454, 610984549, 2043949242, 3306515233, 2759625250, 2459507335, 2885552592, 3226187015, 983312810, 1815610133, 871259259, 3651562935, 570267317, 2548725905, 70380481, 685470168, 1925389996, 2466124957, 1512923993, 2603725653, 409457162, 859041441, 3193931087, 786021320, 2481319115, 2379423262, 1972220678, 251474531, 448830331, 3189297419, 845468707, 3014186402, 1476144624, 1412175603, 464556671, 1251535251, 2252149066, 3501165225, 1173484383, 1168113959, 2547845342, 3132683037, 182880838, 3236782773, 637440805, 1077834200, 910992912, 1281164705, 763525563, 1025793488, 3031918542, 2457090411, 159146268, 3252417067, 1695150089, 1863899429, 2660689081, 647461624, 3736679821, 2034134877, 973654854, 1545264273, 692989149, 769387639, 2024000598, 2916906076, 1996631367, 2889527392, 527082343, 3319918691, 3629378248, 685639382, 2659312228, 472574946, 1237496521, 434512296, 3649895972, 3500730074, 1092276151, 1513927060, 1179642291, 474879861, 1132457849, 3072787035, 1536862618, 3131879287, 1635514910, 2467715064, 2377496874, 2888951190, 3697148067, 1885811970, 1037114846, 2862197847, 2248493059, 829223452, 17390497, 1063920331, 2504310664, 2269937803, 667770896, 1855657371, 323906741, 2972650844, 3620395133, 2613325861, 2508686438, 2143229100, 977352912, 3380653143, 2367018411, 1665354812, 2473914413, 3531805346, 2023595772, 1909192693, 844059686, 2233570033, 1997039839, 3558799006, 2872633369, 1949018254, 3159312415, 3021409934, 2505867881, 2357897866, 3436059930, 1496867815, 594001374, 3433203342, 2396280741, 2696363547, 1775021594, 434891096, 862244228, 1372573410, 3003385341, 3051290794, 493688483, 2143128679, 394087901, 3668481745, 1085467544, 2438896216, 1782052147, 2415529482, 149721114, 1539904401, 1902915995, 1929333694, 1759980967, 2106193398, 3670877657, 2736025727, 3133082490, 182590224, 1099952929, 3522052498, 2206338880, 1925988633, 3440533747, 25471854, 325651518, 72348028, 3178620735, 3335468600, 818634602, 2932340363, 1163855672, 2453716531, 373827915, 2373018915, 2231504345, 2975884007, 3636085022, 2354093635, 2696203979, 799834661, 2412088324, 1446875965, 3299868618, 302142905, 1957341475, 1522953201, 1257060525, 3769499753, 1591149900, 295691418, 3249943297, 1280379656, 1164820140, 115871117, 219831260, 2505969457, 2618672354, 2781617927, 2886486193, 1648555579, 1265576372, 1720183485, 2424145699, 2772052592, 2399827477, 626825210, 2422432913, 322266950, 2157976175, 2208875362, 2216568965, 3223085486]</span><br><span class="hljs-string">ct: b&#x27;&quot;\xf2Y\xf0\x15\xc5x\x94\xb9E\xbd\xd3\xa7\xb1\xad\x00\xa2D*+\x87BQ_20\x87\xa2\nP\xfc\xce\x0eW\xaf\xd8-.\xb5\xfai\xf1\xf6*\xben^\xd5&#x27;</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>题目我不是很能看懂，大致意思就是构造了一个多项式，最高次是$x^{449}$，多项式的系数是从$-1,0,1$中随机抽取的，然后用一个值带入这个多项式并给出结果，总共生成了$n&#x2F;2$组数据，subset是带入的值的列表，values的结果的列表。然后要求我们解出这个$-1,0,1$序列。<br>一开始就感觉这个和背包问题很像，然后事实证明在数据量比较小的情况下，比如n&#x3D;100,背包确实能解。但这题数据量明显特别大，即使用了flatter加速也要好几个小时才能跑完，并且随着数据量的增大，背包也很难求出我们所需要的解。<br>后来问了下小鸡块，他是把背包构造的矩阵进行了拆解，然后使得数据量减小了，也就更容易解出来了。<br>在背包问题中我们有系数向量s，$s * A&#x3D;b$，其中A是由求s用的$450 * 450$的单位矩阵和255个规约组成的，这样的格明显会特别大，所以小鸡块对s和A进行了拆分，可以让A的构造变小很多，也就是降维。<br>我们把s按左右拆成$s_1$和$s_2$，A则对应的按上下拆成$A_1$和$A_2$，我们仍然有$s_1 \cdot A_1 + s_2 \cdot A_2 &#x3D; \mathbf{b}$，然后移项化简得出:<br>$s_1 * A_1 * A_2^{-1}+s_2&#x3D;b * A_2^{-1}$<br>所以我们可以构造格<br>$$<br>\begin{pmatrix}<br>1 &amp; 0 &amp; -A_1A_2^{-1} \<br>0 &amp; 1 &amp; \mathbf{b}A_2^{-1} \<br>0 &amp; 0 &amp; p<br>\end{pmatrix}<br>\to<br>(s_1, 1, \mathbf{k})<br>\begin{pmatrix}<br>1 &amp; 0 &amp; -A_1A_2^{-1} \<br>0 &amp; 1 &amp; \mathbf{b}A_2^{-1} \<br>0 &amp; 0 &amp; p<br>\end{pmatrix}<br>&#x3D; (s_1, 1, s_2)<br>$$<br>这样我们构造的格就会小很多了，求解也就更容易了。<br>感觉这样的构造会很有用，以后格过大的时候可以参考一下来降维。<br>构造完就是直接flatter加速，然后拿出$s_1$和$s_2$组成s就是我们要求的了。<br><a target="_blank" rel="noopener" href="https://tangcuxiaojikuai.xyz/post/d21bb624.html#exp-2">小鸡块的exp</a></p>
+<p>顺带提一下arch上安装flatter(目前还是电脑小白，只会这个喵)<br>直接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">paru -S flatter-git<br></code></pre></td></tr></table></figure>
+<p>就可以了<br>然后要用就</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sage">from subprocess import check_output<br>def flatter(M):<br>    z = &quot;[[&quot; + &quot;]\n[&quot;.join(&quot; &quot;.join(map(str, row)) for row in M) + &quot;]]&quot;<br>    ret = check_output([&quot;flatter&quot;], input=z.encode())<br>    return matrix(M.nrows(), M.ncols(), map(int, findall(b&quot;-?\\d+&quot;, ret)))<br></code></pre></td></tr></table></figure>
+<p>以及我发现传入flatter的矩阵如果是在QQ上的就会报错，ZZ上的就不会，很神奇。</p>
+<h2 id="OhMyTetration"><a href="#OhMyTetration" class="headerlink" title="OhMyTetration"></a>OhMyTetration</h2><p>Welcome to my Lottery Center!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> bytes_to_long<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> LotteryCenter, FLAG<br><span class="hljs-keyword">import</span> signal<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">handler1</span>(<span class="hljs-params">signum, frame</span>):<br>    <span class="hljs-keyword">raise</span> TimeoutError(<span class="hljs-string">&quot;You took too long to make a decision. The boss is not patient.&quot;</span>)<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">handler2</span>(<span class="hljs-params">signum, frame</span>):<br>    e = <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">Before I can react, a heavy hand clamps onto my shoulder. The boss&#x27;s face is dark with rage. &quot;What the hell did you do?!&quot;</span><br><span class="hljs-string">I stammer, &quot;I just thought the numbers could be luckier...&quot;</span><br><span class="hljs-string">&quot;OUT!&quot; he roars, dragging me toward the door. &quot;And don&#x27;t come back unless you&#x27;ve got the money to replace this thing!&quot;</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">raise</span> TimeoutError(e)<br><br>x = bytes_to_long(FLAG)<br><span class="hljs-keyword">assert</span> x.bit_length() &lt;= <span class="hljs-number">512</span><br><br>descrption = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">You step into the Lottery Center, the bell above the door rings softly as you enter. The air is stale, with an old fan humming above. The walls are lined with lottery posters and flashing numbers. At the counter, a middle-aged man in a dark suit is busy sorting through some papers, unaware of your presence.</span><br><span class="hljs-string"></span><br><span class="hljs-string">The atmosphere is quiet and slightly unsettling. You glance around the room — a corner has an old lottery machine, still occasionally making a &quot;clicking&quot; noise. There&#x27;s a poster on the wall showing today&#x27;s lucky numbers, but they seem somewhat blurry.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-built_in">print</span>(descrption)<br><br>lotteryCenter = LotteryCenter()<br><br>menu = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">You&#x27;re left with a few choices:</span><br><span class="hljs-string">1. Talk to the Boss.</span><br><span class="hljs-string">2. Pick Your Lucky Number.</span><br><span class="hljs-string">3. Choose Your Bet Size.</span><br><span class="hljs-string">4. Look Around.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>signal.signal(signal.SIGALRM, handler1)<br>signal.alarm(<span class="hljs-number">600</span>)<br><br><span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:<br>    <span class="hljs-built_in">print</span>(menu)<br>    choice = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;What do you do? &quot;</span>)<br>    <span class="hljs-keyword">if</span> choice == <span class="hljs-string">&quot;1&quot;</span>:<br>        <span class="hljs-comment"># Choose my favourite number.</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;You approach the counter. The boss looks up briefly, then says in a low voice, \&quot;Today&#x27;s lucky number is <span class="hljs-subst">&#123;lotteryCenter.P&#125;</span>. Trust it, it will bring good luck.\&quot;&quot;</span>)<br>    <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">&quot;2&quot;</span>:<br>        g = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;You decide to pick your own lucky number: &quot;</span>))<br>        <span class="hljs-keyword">if</span> lotteryCenter.defineG(g):<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;You successfully pick your lucky number.&quot;</span>)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;You can&#x27;t pick that number.&quot;</span>)<br>    <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">&quot;3&quot;</span>:<br>        <span class="hljs-keyword">if</span> lotteryCenter.g==<span class="hljs-literal">None</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;You should pick your lucky number first.&quot;</span>)<br>        <span class="hljs-keyword">else</span>:<br>            times = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;You decide to pick your bet size: &quot;</span>))<br>            <span class="hljs-keyword">assert</span> times&gt;<span class="hljs-number">0</span><br>            ticket = lotteryCenter.tetration(times, x)<br>            <span class="hljs-comment"># Calculate the tetration g^g^...^g(times)^x.</span><br>            <span class="hljs-comment"># For example, P=23, g=3, tetration(3, 2) = 3^(3^(3^2)) % 23 = 12.</span><br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;You take the ticket with the number <span class="hljs-subst">&#123;ticket&#125;</span> from the machine, feeling a slight chill in the air. The boss looks at you for a moment longer, his expression unreadable. Then, with a slow smile, he finally speaks, his voice low but clear:&quot;</span>)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\&quot;Good luck... I hope today is your lucky day.\&quot;&quot;</span>)<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">&quot;4&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The boss seems distracted — perhaps counting cash or sorting through stacks of old receipts, his back turned just enough. Seizing the moment, I slip around to the back of the lottery machine, my fingers hovering over the controls. A quiet smirk tugs at my lips as I mutter under my breath ...&quot;</span>)<br>        lotteryCenter.P = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;I don&#x27;t think the boss&#x27;s lucky number is lucky enough: &quot;</span>))<br>        <span class="hljs-keyword">assert</span> lotteryCenter.P&gt;<span class="hljs-number">1</span><br>        x = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;\&quot;Yes!\&quot; I whisper, overriding the preset algorithm with my own: &quot;</span>))<br>        g = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;You decide to pick your own lucky number: &quot;</span>))<br>        times = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;You decide to pick your bet size: &quot;</span>))<br>        <span class="hljs-keyword">assert</span> times&gt;<span class="hljs-number">0</span><br>        signal.signal(signal.SIGALRM, handler2)<br>        signal.alarm(<span class="hljs-number">10</span>)<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-keyword">if</span> lotteryCenter.defineG(g):<br>                ticket = lotteryCenter.tetration(times, x)<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;You take the ticket with the number <span class="hljs-subst">&#123;ticket&#125;</span> from the machine secretly.&quot;</span>)<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Oops! The lottery machine whirs weakly as I finish tampering with its settings — then suddenly, the screen flickers violently before dying with a pathetic click. A thin wisp of smoke curls from the vents.&quot;</span>)<br>        <span class="hljs-keyword">except</span> TimeoutError <span class="hljs-keyword">as</span> e:<br>            <span class="hljs-built_in">print</span>(e)<br>        <span class="hljs-keyword">finally</span>:<br>            signal.alarm(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Nothing here.&quot;</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nYou exit the Lottery Center, the door closing softly behind you. The bell rings once more, leaving you standing outside, holding the ticket — unsure if you&#x27;ve just stepped into a stroke of luck... or something else entirely.&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>你可以指定t和g，靶机会计算<br>$$<br>f(t, g) &#x3D; g^{g^{g^{\dots(\text{共} t \text{个} g)^{x}}}} \mod p<br>$$<br>并返回<br>实际测一下可以发现有些p，p-1是很光滑的，所以我们可以使用pohlig hellman，同样也是手写一个bsgs。<br>只不过这次我们要解的方程是$g^{g^x} \equiv f\ (mod p)$，</p>
+<p>To Be Continue…</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2025.4.26ACTF</div>
+      <div>https://bddye.github.io/2025/05/11/2025-4-26ACTF/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>蹦跶的鱼儿</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/04/21/2023-10-30ACTF/" title="2023.10.30ACTF">
+                        <span class="hidden-mobile">2023.10.30ACTF</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
